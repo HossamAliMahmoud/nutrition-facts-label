@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="bg-slate-50" :class="[direction === 'rtl' ? 'rtl' : 'ltr']">
+      <div class="container mx-auto p-4">
+        <LanguageSwitcher />
+      </div>
+      <NutritionFactsLabel />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NutritionFactsLabel from './components/NutritionFactsLabel.vue'
+import LanguageSwitcher from "./components/LanguageSwitcher.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    LanguageSwitcher,
+    NutritionFactsLabel
+  },
+  data() {
+    return {
+      currentLanguage: "en",
+    };
+  },
+  computed: {
+    direction() {
+      return this.$i18n.messages[this.$i18n.locale].direction || "ltr";
+    },
+  },
+  watch: {
+    direction(newDirection) {
+      // Update the direction on the <html> tag
+      document.documentElement.setAttribute("dir", newDirection);
+    },
+  },
+  methods: {},
+  created() { },
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

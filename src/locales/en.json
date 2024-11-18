@@ -1,0 +1,12 @@
+{
+    "welcome": "Welcome",
+    "language": "Language",
+    "en": "English",
+    "ar": "العربية",
+    "amountPerServing": "Amount Per Serving",
+    "servingPerContainer": "Serving Per Container",
+    "nutritionFacts": "Nutrition Facts",
+    "servingSize": "Serving Size",
+    "staticText": " * The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.",
+    "direction": "ltr"
+  }
